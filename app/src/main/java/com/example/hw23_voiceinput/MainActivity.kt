@@ -5,25 +5,22 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Locale
-import java.util.Objects
-
 
 class MainActivity : AppCompatActivity() {
 
     private var iv_mic: Button? = null
-    private var tv_Speech_to_text: TextView? = null
+    private var text: TextView? = null
     private val REQUEST_CODE_SPEECH_INPUT = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         iv_mic = findViewById<Button>(R.id.button)
-        tv_Speech_to_text = findViewById<TextView>(R.id.text)
+        text = findViewById<TextView>(R.id.text)
         iv_mic?.setOnClickListener(View.OnClickListener {
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
             intent.putExtra(
@@ -58,8 +55,7 @@ class MainActivity : AppCompatActivity() {
                 val result = data.getStringArrayListExtra(
                     RecognizerIntent.EXTRA_RESULTS
                 )
-                tv_Speech_to_text!!.text =
-                    Objects.requireNonNull(result)!![0]
+                text!!.text = text!!.text.toString() + "\n" + result!![0]
             }
         }
     }

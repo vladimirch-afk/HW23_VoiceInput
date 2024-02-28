@@ -10,7 +10,6 @@
         android:id="@+id/text"
         android:layout_width="206dp"
         android:layout_height="147dp"
-        android:text="Hello World!"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
